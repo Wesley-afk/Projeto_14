@@ -34,16 +34,16 @@ public class Projeto_14 {
       System.out.println("Matriz usuario: \n");
         for (int i = 0; i < 5; i++) {
             for (w = 0; w < 5; w++) {
+               try{
                 System.out.print(num_int[w][i] + " ");      
                  soma[w] += num_int[w][i];
+               }
+               catch(NumberFormatException e){
+                   System.out.println(e.getMessage());
+               }
             }
-           try{
-            System.out.print("\n---------- soma = " + soma[i] + "\n");
-           }
-           catch(ArrayIndexOutOfBoundsException e){
-               System.out.println(e.getMessage());
-                System.out.println(w);
-           }
+            System.out.print("\n----------\n");
         }
     }
 }
+
