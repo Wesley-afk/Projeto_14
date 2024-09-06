@@ -2,8 +2,8 @@ package com.mycompany.projeto14;
 
 import java.io.DataInputStream;
 import java.io.IOException;
-import static java.lang.Float.parseFloat;
 import java.util.Arrays; //me ajuda a organizar arrays
+import java.util.ArrayList; //permite que eu tenha um array dinamico
 
 /**
  *
@@ -19,6 +19,8 @@ public class Projeto14 {
        int contador = 0;
        int []soma_linha; soma_linha = new int[5];
        int []vetor_coluna; vetor_coluna = new int[5];
+       ArrayList<Integer> num_repetido = new ArrayList<>();
+       ArrayList<Integer> contagem = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -53,12 +55,20 @@ public class Projeto14 {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 System.out.print(num_int[i][j] + " ");
+             //verificando a existência de numeros repetidos.
+              /**  if(num_int[i][j] == num_int[i + 1][j + 1]){
+                    contagem.set(i, + 1);
+                   num_repetido.set(i, num_int[i][j]);
+                }*/
             }
             System.out.print(" Soma = " + soma_linha[i]);
             System.out.println("\n-----------------\n");
         }
         for (int i = 0; i < 5; i++) {
              System.out.print(vetor_coluna[i] + " ");
-        }
-     }
-}
+        }/*
+        for (int i = 0; i < num_repetido.size() ; i++) { //com array.size com a biblioteca java.util.ArrayList, 
+            System.out.println("Numeros repetidos = " +num_repetido); //permite com que eu use o array.size para descobrir o tamanho da matriz.
+            System.out.println("Quantas vezes repetiram = " + contagem);*/
+    }
+ }
