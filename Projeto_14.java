@@ -1,49 +1,58 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-package com.mycompany.projeto_14;
+package com.mycompany.projeto14;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import static java.lang.Float.parseFloat;
+import java.util.Arrays; //me ajuda a organizar arrays
 
 /**
  *
- * @author w.rocha
+ * @author wpass
  */
-public class Projeto_14 {
+public class Projeto14 {
 
-//adicionar o tratamento de erros.
-    
     public static void main(String[] args) throws IOException {
-       DataInputStream [][]dado; dado = new DataInputStream[5][5]; 
-        String [][]num_string; num_string = new String[5][5];
-         int [][]num_int; num_int = new int[5][5];
-          int []soma; soma = new int[5];
-           int[]soma_linha; soma_linha = new int[5];
-            int w = 0;
-          
+       DataInputStream [][]dado; dado = new DataInputStream [5][5]; 
+       String [][]num_string; num_string = new String[5][5];
+       int [][]num_int; num_int = new int[5][5];
+       int []vetor; vetor = new int[25];
+       
+       int contador = 0; 
+
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                System.out.println("Preencha a matriz.");
-                 dado[j][i] = new DataInputStream(System.in);
-                  num_string[j][i] = dado[j][i].readLine();
-                   num_int[j][i] = (int) Float.parseFloat(num_string[j][i]);
+                System.out.println("Preencha a matriz");
+                dado[i][j] = new DataInputStream(System.in);
+                num_string[i][j] = dado[i][j].readLine();
+                num_int[i][j] = (int) Float.parseFloat(num_string[i][j]);
+                vetor[contador] = num_int[i][j];
+                contador++;
             }
-        }      
-      System.out.println("Matriz usuario: \n");
-        for (int i = 0; i < 5; i++) {
-            for (w = 0; w < 5; w++) {
-               try{
-                System.out.print(num_int[w][i] + " ");      
-                 soma[w] += num_int[w][i];
-               }
-               catch(NumberFormatException e){
-                   System.out.println(e.getMessage());
-               }
-            }
-            System.out.print("\n----------\n");
         }
-    }
+           //Exibindo a maotriz digitada pelo meu usuário
+          System.out.println("Matriz usuario: \n");
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    System.out.print(num_int[j][k] + " ");
+                }
+                System.out.println("\n-----\n");
+            }
+        Arrays.sort(vetor); 
+        contador = 0;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                num_int[i][j] = vetor[contador];
+                contador++;
+            }
+        }
+        System.out.println("Matriz em ordem crescente: \n");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(num_int[i][j] + " ");
+            }
+            System.out.println("\n-----\n");
+        }
+        //exbir somas de linha e coluna
+        
+     }
 }
-
